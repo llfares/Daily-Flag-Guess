@@ -1,0 +1,45 @@
+{{!-- Creating Flags table --}}
+<table id="flag-table">
+{{!-- Header section --}}
+    <thead>
+
+        {{!--Insert button --}}
+        <div>
+            <form action="/add-flag-form" method="get">
+                <button type="submit">Insert New</button>
+            </form> 
+
+        {{!-- Search Form --}}
+
+            <form id="search-flag-html" method='GET' action='/flags'>
+                <label for="input-flagName"></label>
+                <input type="text" name="flagName" id="input-flag-name-html-search" placeholder="Search by flag...">
+                
+                <input type="submit">
+                <a href='/'><button>Reset</button></a>
+            </form>
+        </div>    
+
+        {{!-- Row headers --}}
+        <tr>
+            <th>Flag ID</th>
+            <th>Flag</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+        {{#each data}}
+        <tr data-value={{this.flagID}}>
+            <td>{{this.flagID}}</td>
+            <td>{{this.flagName}}</td>
+            <td>
+            <a href="/update-flag-form/{{this.flagID}}"><button type="submit">Update</button> </a>
+            <button onclick="deleteFlag({{this.flagID}})">Delete</button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script src="./js/delete-flag.js"></script>

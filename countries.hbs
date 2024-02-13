@@ -1,0 +1,58 @@
+{{!-- Creating Countries table --}}
+<table id="countries-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!--Insert button --}}
+        <div>
+            <form action="/add-country-form" method="get">
+                <button type="submit">Insert New</button>
+            </form> 
+
+        {{!-- Search Form --}}
+
+        <form id="input-countryName-search" method='GET' action='/countries'>
+            <label for="input-countryName"></label>
+            <input type="text" name="countryName" id="input-countryName-search" placeholder="Search country name...">
+            
+            <input type="submit">
+            <a href='/'><button>Reset</button></a>
+        </form>
+        </div>  
+
+    <tr>
+        <th>Country ID</th>
+        <th>Country Name</th>
+        <th>Flag</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+    {{!-- Printing country ID, name, and flag for each row in order --}}
+    {{#each data}}
+        <tr data-value={{this.countryID}}>
+            <td>{{this.countryID}}</td>
+            <td>{{this.countryName}}</td>
+            <td>
+                <!-- Displaying the flag image -->
+                <img src="{{this.flagInfo.flagImageURL}}" alt="{{this.flagInfo.flagName}}" width="200" height="100">
+            </td>
+            <td>
+                <a href="/update-country-form/{{this.countryID}}"><button type="submit">Update</button></a>
+                <button onclick="deleteCountry({{this.countryID}}, '{{this.countryName}}')">Delete</button>
+            </td>
+        </tr>
+    {{/each}}
+</tbody>
+</table>
+
+<p><strong>*</strong>: Today's Country</p>
+
+<button type="submit">Change Today's Country</button>
+
+<script src="./js/delete-country.js"></script>
+
+

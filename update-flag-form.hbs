@@ -1,0 +1,22 @@
+{{!-- Update Flag Form --}}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update A Flag</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<main>
+<h1>Update A Flag</h1>
+
+<form action="/update-flag-form/{{data.flagID}}" method="POST">
+    <fieldset>
+        <!-- Displaying the current flag -->
+        <label for="flagName">Flag:</label>
+        <input type="text" name="flagName" value="{{data.flagName}}" required>
+        
+        <button type="submit">Update Flag</button>
+    </fieldset>
+</form>
+</main>
+</html>

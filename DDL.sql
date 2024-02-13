@@ -14,8 +14,11 @@ CREATE TABLE `Flags` (
 
 INSERT INTO Flags (flagName, flagImageURL)
 VALUES
-("Irish Flag", '/public/css/Assets/ireland.png'), 
-("Italian Flag", '/public/css/Assets/italy.png');
+("India", '/css/Assets/india.png'),
+("Ireland", '/css/Assets/ireland.png'), 
+("Italy", '/css/Assets/italy.png'),
+("Jamaica", '/css/Assets/jamaica.png'),
+("Japan", '/css/Assets/japan.png');
 
 -- -----------------------------------------------------
 -- Table `Countries`
@@ -35,8 +38,9 @@ CREATE TABLE `Countries` (
 
 INSERT INTO Countries (countryName, Flags_flagID)
 VALUES
-("Ireland", (SELECT flagID FROM Flags WHERE flagName = "Irish Flag")),
-("Italy", (SELECT flagID FROM Flags WHERE flagName = "Italian Flag"));
+("India", (SELECT flagID FROM Flags WHERE flagName = "India")),
+("Ireland*", (SELECT flagID FROM Flags WHERE flagName = "Ireland")),
+("Italy", (SELECT flagID FROM Flags WHERE flagName = "Italy"));
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;

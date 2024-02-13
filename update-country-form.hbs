@@ -1,0 +1,67 @@
+{{!-- Update Countries Form --}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Country</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+    <main>
+        <h1>Update Country</h1>
+
+        <form action="/update-country-form/{{data.countryID}}" method="POST">
+            <fieldset>
+                
+                <!-- Display the current Country Name -->
+                <label for="input-countryName">Country Name: </label>
+                <input type="text" name="input-countryName" id="input-countryName" required value="{{data.countryName}}">
+
+                <label for="input-flagName">Flag: </label>
+                <select name="input-flagName">
+                </select>
+
+                <button>Update Country</button>
+            </fieldset>
+        </form>
+
+    <script>
+    
+    // Fetching flags to populate the dropdown
+    async function fetchFlags() {
+        try {
+            const response = await fetch('/get-flags'); 
+            const flags = await response.json();
+
+            const flagDropdown = document.querySelector('select[name="input-flagName"]');
+
+            // Adding a blank option
+            const blankOption = document.createElement('option');
+            blankOption.value = ''; 
+            blankOption.textContent = ''; 
+            flagDropdown.appendChild(blankOption);
+
+            // Adding an option for each flag
+            flags.forEach((flag) => {
+                const option = document.createElement('option');
+                option.value = flag.flagID;
+                option.textContent = flag.flagName;
+                flagDropdown.appendChild(option);
+            });
+
+            // Setting the selected option based on data.Flags_flagID
+            const selectedFlagID = '{{data.Flags_flagID}}';
+            if (selectedFlagID) {
+                flagDropdown.value = selectedFlagID;
+            }
+        } catch (error) {
+            console.error('Error fetching flags:', error);
+        }
+    }
+
+    // Calling the fetchFlags function when the page loads
+    document.addEventListener('DOMContentLoaded', fetchFlags);
+    </script>
+
+    </main>
+</body>
+</html>

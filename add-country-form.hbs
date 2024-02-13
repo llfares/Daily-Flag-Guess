@@ -1,0 +1,32 @@
+{{!-- Add Country Form --}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add A New Country</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+    <main>
+        <h1>Add A New Country</h1>
+
+        <form id="add-country-form" method="POST" action="/add-country-form">
+            <fieldset>
+                <label for="input-countryName">Country Name: </label>
+                <input type="text" name="input-countryName" id="input-countryName" required>
+
+                <label for="input-flagName">Flag: </label>
+                <select name="input-flagName">
+                    {{#each flags}}
+                        <option value="{{this.flagID}}">
+                            {{this.flagName}}
+                        </option>
+                    {{/each}}
+                </select>
+
+                <button>Add Country</button>
+            </fieldset>
+        </form>
+
+    </main>
+</body>
+</html>
