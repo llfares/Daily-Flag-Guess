@@ -1,0 +1,49 @@
+<!-- game.hbs -->
+<main>
+    <h1>Today's Flag</h1>
+    <img src="/css/Assets/ireland.png" alt="Today's Flag Image">
+
+    {{#if incorrectGuesses.length}}
+        <p>Incorrect attempts:</p>
+        <ul>
+            {{#each incorrectGuesses}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
+
+    <form action="/submit-guess" method="post">
+        {{#each guesses}}
+            <div>
+                <label for="guess{{@index}}">Enter Your Guess:</label>
+                <input type="text" id="guess{{@index}}" name="guess" value="{{this}}" placeholder="Type country name..." required disabled>
+                {{#if incorrectGuesses.[@index]}}
+                    <p>X INCORRECT</p>
+                {{/if}}
+            </div>
+        {{/each}}
+
+        {{#if guessAttemptLessThanMax}}
+            {{#unless correctGuess}}
+                <div>
+                    <label for="guess{{guessAttempt}}">Enter Your Guess:</label>
+                    <input type="text" id="guess{{guessAttempt}}" name="guess" placeholder="Type country name..." required>
+                </div>
+            {{/unless}}
+        {{/if}}
+
+        <button type="submit">GUESS</button>
+    </form>
+
+
+
+    {{#if correctGuess}}
+        <p>Congratulations! You guessed correctly.</p>
+    {{else if maxAttemptsReached}}
+        <p>Sorry! Better luck next time.</p>
+    {{/if}}
+
+    <p>Attempt {{guessAttempt}} of 3</p>
+</main>
+
+

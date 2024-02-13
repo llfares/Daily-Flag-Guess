@@ -1,0 +1,352 @@
+/*  ===== MOBILE styles (reside at the top and are inherited by all devices) ===== */
+/*  ===== See tablet, desktop, and print @media queries at the bottom. */
+
+
+/*   ----- Imports  -----  */
+/* Add fonts from the app's server 
+    @font-face {                
+      font-family: 'FontName';
+      src: url('FontName.woff2') format('woff2');
+    } 
+    ...or hosted services like Google Fonts 
+    @import url(//fonts.googleapis.com/css?family=Font+Name);
+  */
+
+/* @import 'node_modules/modern-normalize/modern-normalize.css'; */
+/* npm install modern-normalize
+          Resets elements for browser consistency.  
+          https://www.npmjs.com/package/modern-normalize
+        */
+
+/* Component-specific stylesheets, if any. 
+    @import "component1.css";   
+  */
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Chivo+Mono&display=swap');
+
+
+/*  ----- Viewport ----- elements inherited by all remaining elements ----- */
+body {
+  /* Can alternatively define in html {} or :root {} */
+  background-image: url("Assets/blank.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color:navy;
+  font-family: 'Chivo Mono', monospace;
+  margin: 0 auto;
+  /* center the whole page */
+  padding: 3%;
+  padding-bottom: 5rem;
+  max-width: 1200px;
+  position: relative;
+}
+
+
+/*  ----- Page layout blocks -----  */
+header {
+  font-family: 'Chakra Petch', sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
+  color: navy;
+}
+
+#header a {
+  text-decoration: none;
+  color: navy;
+}
+
+button.login-register-btn {
+  background-color: lightskyblue;
+  border: 2px solid navy;
+  color: darkblue;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-left: 80%;
+}
+
+main {
+  background-color:;
+  padding: 25px;
+  
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  color: navy;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ----- Anchors ----- Text links */
+a {}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {}
+
+a:active {}
+
+a:visited {}
+
+/*  ----- Navigation ----- Override text links for navigation only.  */
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.nav-bar a {
+  color: palevioletred;
+  background-color: lightskyblue;
+  margin: 5px 5px;
+  padding: 0.5em 2.5em;
+  text-decoration: none;
+}
+
+.nav-bar a:hover {
+  color: lightskyblue;
+  background-color: palevioletred;
+}
+
+.nav-concepts {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.nav-concepts a {
+  color: lightskyblue;
+  background-color: palevioletred;
+  margin: 5px 5px;
+  padding: 5px;
+
+}
+
+.nav-concepts a:hover {
+  color: palevioletred;
+  background-color: lightskyblue;
+}
+
+
+/*  -----  Typography  ----- */
+
+dd {
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-family: 'Chakra Petch', sans-serif;
+  color: black;
+  border-color: lightskyblue;
+  border-style: dashed;
+  padding: 5px 10px;
+}
+
+h3 {
+  color: lightskyblue;
+  border-bottom: solid;
+}
+
+h4,
+h5,
+h6 {
+  font-family: 'Chakra Petch', sans-serif;
+  color: gray;
+  text-decoration: underline;
+}
+
+
+/*  ----- Table ----- */
+table {
+  border-collapse: collapse;
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* Style the table caption */
+caption {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Style the table header cells */
+th {
+  color: gray;
+  background-color:navy;
+  padding: 10px;
+  border: 1px dotted;
+}
+
+/* Style the table data cells */
+tr td {
+  padding: 10px;
+  border: 1px dotted;
+  text-align: end;
+}
+
+.title-col {
+  text-align: left;
+}
+
+.delete-col,
+.edit-col {
+  width: 50px;
+}
+
+
+/* td:nth-child(1) {} */
+tr:nth-child(even) td {
+  background-color: lightcyan;
+}
+
+tr:nth-child(odd) td {
+  background-color: mediumblue;
+}
+
+
+
+/*  ----- Form ----- */
+form {
+  font-family: 'Chivo Mono', monospace;
+  margin: 0 auto;
+  /* center the whole page */
+  grid-gap: 20px;
+  display: block;
+}
+
+
+fieldset {
+  border: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+legend {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: flex;
+}
+
+label {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+button {
+  background-color: lightskyblue;
+  border-color: navy;
+  color: darkblue;
+  font-weight: bold;
+  max-width: fit-content;
+  padding: 1%;
+  margin-left: 45%;
+}
+
+input {
+  /* display: inline-block; */
+  color: darkblue;
+  background-color: lightblue;
+  border-radius: 5%;
+  border-color: darkblue;
+}
+
+input[type=text] {
+  padding: 5px 10px;
+  margin: 10px 7px 20px -10px;
+  max-width: fit-content;
+}
+
+input[type=number] {
+  padding: 5px 10px;
+  margin: 10px 0;
+  max-width: fit-content;
+}
+
+select {
+  display: inline-block;
+  background-color: lightskyblue;
+  border-radius: 10%;
+  border-color: transparent;
+  padding: 1%;
+  width: fit-content;
+  margin-bottom: 2%;
+}
+
+optgroup {
+  background-color: lightskyblue;
+  color: palevioletred
+}
+
+option {
+  background-color: lightskyblue;
+  color: palevioletred
+}
+
+textarea {
+  width: 500px;
+  height: 250px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  margin-left: -10px;
+  display: grid;
+  /* background-color: lightskyblue; */
+  color: navy;
+  background-color: palevioletred;
+  border-radius: 10%;
+  border-color: transparent;
+}
+
+
+#submitInput {
+  background-color: lightskyblue;
+  border-radius: 10%;
+  border-color: transparent;
+  font-weight: bold;
+  color: palevioletred;
+  margin-top: 25%;
+  margin-left: 7%;
+  padding: 10%;
+  text-align: center;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+:focus {
+  color: black;
+  background-color: lightskyblue;
+}
+
+:required {
+  border: 2px solid lightskyblue;
+}
+
+label.required:after {
+  content: " *";
+  color: darkred;
+}
+
+input:invalid {
+  border: 3px solid;
+}
+
+input:valid {
+  border: 2px solid lightskyblue;
+}
+
+::placeholder {
+  color: blue;
+}
